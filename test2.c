@@ -1,5 +1,5 @@
 // Augustine Ofoegbu
-// Program  which includes and tests a FUNCTION which determines if a game of TicTacToe is won
+// Program  that includes and tests a FUNCTION which determines if a game of TicTacToe is won
 // 07/21/2023
 
 #include <stdio.h>
