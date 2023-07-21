@@ -1,44 +1,12 @@
+// Augustine Ofoegbu
+// Program  which includes and tests a FUNCTION which determines if a game of TicTacToe is won
+// 07/21/2023
+
 #include <stdio.h>
 
 
-// Function to check if the game is won
-int checkWin(char board[3][3]) {
-    // Check rows for a win
-    for (int i = 0; i < 3; i++) {
-        if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
-            return 1;
-        }
-    }
-
-    // Check columns for a win
-    for (int i = 0; i < 3; i++) {
-        if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ') {
-            return 1;
-        }
-    }
-
-    // Check diagonals for a win
-    if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') ||
-        (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')) {
-        return 1;
-    }
-
-    // No win yet
-    return 0;
-}
-
-
-// Function to perform the unit test
-_Bool performUnitTest(char board[3][3], int expectedResult) {
-    int result = checkWin(board);
-    if (result == expectedResult) {
-        return 1;
-    } else {
-        printf("Unit test failed!\n");
-        printf("Expected result: %d, Actual result: %d\n", expectedResult, result);
-        return 0;
-    }
-}
+int checkWin(char board[3][3]);
+_Bool performUnitTest(char board[3][3], int expectedResult);
 
 int main() {
     // Test 1: Horizontal win for 'X'
@@ -81,4 +49,42 @@ int main() {
     }
 
     return 0;
+}
+
+// Function to check if the game is won
+int checkWin(char board[3][3]) {
+    // Check rows for a win
+    for (int i = 0; i < 3; i++) {
+        if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
+            return 1;
+        }
+    }
+
+    // Check columns for a win
+    for (int i = 0; i < 3; i++) {
+        if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ') {
+            return 1;
+        }
+    }
+
+    // Check diagonals for a win
+    if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') ||
+        (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')) {
+        return 1;
+    }
+
+    // No win yet
+    return 0;
+}
+
+// Function to perform the unit test
+_Bool performUnitTest(char board[3][3], int expectedResult) {
+    int result = checkWin(board);
+    if (result == expectedResult) {
+        return 1;
+    } else {
+        printf("Unit test failed!\n");
+        printf("Expected result: %d, Actual result: %d\n", expectedResult, result);
+        return 0;
+    }
 }
